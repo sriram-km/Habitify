@@ -1,0 +1,6 @@
+FROM tomcat:8.0-alpine
+ADD Habitify.war /usr/local/tomcat/webapps/
+EXPOSE 8080
+RUN pwd
+RUN ls
+CMD ["/usr/local/tomcat/bin/catalina.sh", "run"]

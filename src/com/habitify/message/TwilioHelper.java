@@ -38,6 +38,6 @@ public class TwilioHelper {
         System.setProperty("twilio.authToken","fed04ac38185b958bb17e6ca57167211s");
         System.setProperty("twilio.fromPhoneNumber","+13392013642");
 
-        twilioHelper.sendMessage("+918550006006", "hi");
+        twilioHelper.sendMessage("+918550006006", "Hi, There. Your friend Sri Ram broke the streak of going to gym today. Help him.");
     }
 }

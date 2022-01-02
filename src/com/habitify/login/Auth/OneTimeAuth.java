@@ -85,5 +85,12 @@ public class OneTimeAuth {
         return url;
     }
 
+    public static void main(String args[]){
+        String sceretKey = "5XHCH32TOVACNIYXVHGGXHENEMLKKEU7";
+        String phoneNumber = "+91855006006";
+        String account = "Habitify";
+        OneTimeAuth oneTimeAuth = new OneTimeAuth();
+        System.out.println(oneTimeAuth.getQrURL(oneTimeAuth.getGoogleAuthenticatorBarCode(sceretKey, phoneNumber, account)));
+    }
 
 }

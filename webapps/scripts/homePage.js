@@ -23,7 +23,7 @@ $("#button").click(function() {
                 dataType: 'json',
                 success: function(data) {
                     if (data["status"] == "100") {
-
+                        window.location.replace("app/")
                     } else if (data["status"] == "101") {
                         $("#passwordInput").css('box-shadow', "0px 0px 15px red");
                     } else if (data["status"] == "102") {
@@ -52,7 +52,7 @@ $("#button").click(function() {
             $("#passwordInput").css('box-shadow', "0px 0px 15px red");
         }
     } else if (currentStatus == formStatus.scanQR) {
-
+        window.location.replace("app/")
     } else if (currentStatus == formStatus.signUp) {
         if (phoneNumberRegex.test($("#phoneInput").val())) {
             $.ajax({
@@ -98,8 +98,9 @@ $("#button").click(function() {
                         $("#phoneInput").hide();
                         $("#passwordLabel").text("Scan the QR code");
                         $("#passwordInput").hide();
-                        $("#qr").css("display", "block");
                         $("#button").text("Done");
+                        $("#qr").css("display", "block");
+                        $("#qr").attr("src", data["qrUrl"]);
                         currentStatus = formStatus.signUpQR;
                     } else if (data["status"] == "101") {
                         alert('Incorrect OTP. Try again');
@@ -109,9 +110,11 @@ $("#button").click(function() {
                     }
                 }
             });
-        } else {
-            $("#passwordInput").css('box-shadow', "0px 0px 15px red");
         }
+    } else if (currentStatus == formStatus.signUpQR) {
+        window.location.replace("app/");
+    } else {
+        $("#passwordInput").css('box-shadow', "0px 0px 15px red");
     }
 });
 
