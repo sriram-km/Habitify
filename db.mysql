@@ -1,0 +1,27 @@
+create database Habitify;
+use Habitify;
+CREATE TABLE `userCredentials` (
+  `phoneNumber` varchar(13) NOT NULL,
+  `secretKey` varchar(32) NOT NULL,
+  `AuthToken` varchar(100) NOT NULL,
+  `name` varchar(50) NOT NULL,
+  PRIMARY KEY (`phoneNumber`)
+);
+CREATE TABLE `habits` (
+  `phoneNumber` varchar(13) NOT NULL,
+  `habit` varchar(50) NOT NULL,
+  PRIMARY KEY (`phoneNumber`)
+);
+CREATE TABLE `streak` (
+  `phoneNumber` varchar(13) NOT NULL,
+  `habit` varchar(50) NOT NULL,
+  `data` DATE NOT NULL,
+  `done` tinyint(1) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`phoneNumber`)
+);
+CREATE TABLE `friend` (
+  `phoneNumber` varchar(13) NOT NULL,
+  `friendNumber` varchar(13) NOT NULL,
+  `friendName` varchar(50) NOT NULL,
+  PRIMARY KEY (`phoneNumber`)
+);
